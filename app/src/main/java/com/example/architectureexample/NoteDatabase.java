@@ -58,5 +58,20 @@ public abstract class NoteDatabase extends RoomDatabase {
                 dao.insert(note);
             });
         }
+
+        @Override
+        public void onOpen(@NonNull SupportSQLiteDatabase db) {
+            super.onOpen(db);
+            databaseWriteExecutor.execute(() -> {
+                NoteDao dao = instance.noteDao();
+                dao.deleteAllNotes();
+                Note note = new Note("Title 1", "Description 1", 1);
+                dao.insert(note);
+                note = new Note("Title 2", "Description 2", 2);
+                dao.insert(note);
+                note = new Note("Title 3", "Description 3", 3);
+                dao.insert(note);
+            });
+        }
     };
 }

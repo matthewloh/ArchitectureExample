@@ -45,6 +45,9 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
 
+    // Navigation component UI
+    implementation("androidx.navigation:navigation-fragment:2.5.3")
+    implementation("androidx.navigation:navigation-ui:2.5.3")
 //    // Dependencies for working with Architecture components
 //    // You'll probably have to update the version numbers in build.gradle (Project)
 //
